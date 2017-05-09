@@ -1,10 +1,6 @@
 <?php
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
-Route::resource('doctor', 'DoctorController');
-Route::resource('patient', 'PatientController');
-Route::resource('appointment', 'AppointmentController');
-Route::resource('speciality', 'SpecialityController');
 Route::post('doctor/create', 'DoctorController@create_doctor');
 Route::match(['put', 'post'], 'doctor/{doctor_id}/edit', 'DoctorController@edit_doctor');
 Route::match(['get', 'delete'], 'doctor/{doctor_id}/delete', 'DoctorController@delete_doctor');
@@ -25,3 +21,7 @@ Route::get('appointment/{appointment_id}', 'AppointmentController@read_appointme
 Route::get('appointment', 'AppointmentController@read_appointments');
 Route::get('speciality/{speciality_id}', 'SpecialityController@read_speciality');
 Route::get('speciality', 'SpecialityController@read_specialities');
+Route::resource('doctor', 'DoctorController');
+Route::resource('patient', 'PatientController');
+Route::resource('appointment', 'AppointmentController');
+Route::resource('speciality', 'SpecialityController');
