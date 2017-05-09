@@ -21,7 +21,3 @@ Route::get('appointment/{appointment_id}', 'AppointmentController@read_appointme
 Route::get('appointment', 'AppointmentController@read_appointments');
 Route::get('speciality/{speciality_id}', 'SpecialityController@read_speciality');
 Route::get('speciality', 'SpecialityController@read_specialities');
-Route::resource('doctor', 'DoctorController');
-Route::resource('patient', 'PatientController');
-Route::resource('appointment', 'AppointmentController');
-Route::resource('speciality', 'SpecialityController');
