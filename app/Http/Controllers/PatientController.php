@@ -26,4 +26,8 @@ class PatientController extends Controller
 	 
         return response()->json($result->current());
     }
+    
+    public function read_patients() {
+        return response()->json(Patient::all());
+    }
 }
