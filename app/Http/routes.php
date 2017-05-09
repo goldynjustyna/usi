@@ -10,7 +10,7 @@ Route::get('doctor/{doctor_id}/appointment/{appointment_id}', 'DoctorController@
 Route::get('doctor', 'DoctorController@read_doctors');
 Route::get('doctor/speciality/{speciality_id}', 'DoctorController@read_doctors_by_speciality');
 Route::post('patient/create', 'PatientController@create_patient');
-Route::match(['get', 'delete'], 'patient/{patient_id}/delete', 'PatientController@remove');
+Route::match(['get', 'delete'], 'patient/{patient_id}/delete', 'PatientController@delete_patient');
 Route::get('patient/{patient_id}', 'PatientController@read_patient');
 Route::get('patient/{patient_id}/appointment', 'PatientController@read_patient_appointments');
 Route::get('patient/{patient_id}/appointment/{appointment_id}', 'PatientController@read_patient_appointment');
