@@ -50,6 +50,6 @@ class DoctorController extends Controller
     }
     
     public function read_doctors_by_speciality($s_id) {
-        return response()->json(Doctor::where(array('SPECIALITY_id', intval($s_id)))->get());
+        return response()->json(Doctor::where(array(array('SPECIALITY_id', intval($s_id))))->get());
     }
 }
