@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Patient;
+use App\Appointment;
 use Illuminate\Http\Request;
 
 class PatientController extends Controller 
@@ -30,7 +31,12 @@ class PatientController extends Controller
     
     public function read_patient_appointment($patient_id, $appointment_id) {
 	$result = Appointment::all()->where('DOCTOR_id', intval($patient_id))->where('id', intval($appointment_id));
-        return response()->json($result->current());
+	reset($result);
+	if (count($result)) {
+	    return response()->json($result{0});
+	} else {
+	    return response()->json(array());
+	}
     }
     
     public function read_patients() {
