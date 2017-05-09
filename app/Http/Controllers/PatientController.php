@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PatientController extends Controller 
 {
+    public function create_patient(Request $request) {
+        $d = new Patient();
+        $d->fill($request->json()->all());
+        $d->save();
+        return response()->json(array('id' => $d->id));
+    }
+    
     public function delete_patient($patient_id) {
         Patient::destroy($patient_id);
         return response()->json(['id' => $patient_id]);
@@ -23,7 +30,6 @@ class PatientController extends Controller
     
     public function read_patient_appointment($patient_id, $appointment_id) {
 	$result = Appointment::all()->where('DOCTOR_id', intval($patient_id))->where('id', intval($appointment_id));
-	 
         return response()->json($result->current());
     }
     
